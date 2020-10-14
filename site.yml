@@ -1,0 +1,35 @@
+---
+- hosts: all
+  become: true
+  pre_tasks:
+    - name: update repository
+      tags: always
+      apt:
+        update_cache: yes
+      changed_when: false
+
+- hosts: all
+  become: true
+  roles:
+    - base
+
+- hosts: backend
+  become: true
+  vars_files:
+    - vars/nodejs.yml
+  roles:
+    - nodejs
+
+- hosts: backend
+  become: true
+  vars_files:
+    - vars/nginx.yml
+  roles:
+    - nginx
+
+- hosts: backend
+  become: true
+  vars_files:
+    - vars/domain.yml
+  roles:
+    - domains

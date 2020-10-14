@@ -1,0 +1,4 @@
+---
+# Used only for Debian/Ubuntu installation, as the -t option for apt.
+app_port: 5000
+app_name: app_test.conf
