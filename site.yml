@@ -17,19 +17,12 @@
   become: true
   vars_files:
     - vars/nodejs.yml
-  roles:
-    - nodejs
-
-- hosts: backend
-  become: true
-  vars_files:
     - vars/nginx.yml
-  roles:
-    - nginx
-
-- hosts: backend
-  become: true
-  vars_files:
     - vars/domain.yml
   roles:
+    - nodejs
+    - nginx
     - domains
+  tasks:
+    - name: Install pm2
+      npm: name=pm2 global=yes production=yes

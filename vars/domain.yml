@@ -1,4 +1,4 @@
 ---
 # Used only for Debian/Ubuntu installation, as the -t option for apt.
-app_port: 5000
-app_name: app_test.conf
+domain_app_port: 5000
+domain_app_name: app_test.conf

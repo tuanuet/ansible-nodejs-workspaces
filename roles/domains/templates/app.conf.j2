@@ -1,9 +1,9 @@
 server {
-    listen {{ app_port }} default_server;
-    listen [::]:{{ app_port }} default_server;
+    listen {{ domain_app_port }} default_server;
+    listen [::]:{{ domain_app_port }} default_server;
 
     location / {
-        proxy_pass http://localhost:{{ app_port }};
+        proxy_pass http://localhost:{{ domain_app_port }};
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
