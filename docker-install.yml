@@ -1,0 +1,20 @@
+---
+- hosts: all
+  roles:
+    - base
+
+- hosts: all
+  become: true
+  pre_tasks:
+    - name: update repository
+      tags: always
+      apt:
+        update_cache: yes
+      changed_when: false
+
+- hosts: backend
+  become: true
+  vars_files:
+    - vars/docker.yml
+  roles:
+    - docker

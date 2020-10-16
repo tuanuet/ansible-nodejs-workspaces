@@ -1,5 +1,9 @@
 ---
 - hosts: all
+  roles:
+    - base
+
+- hosts: all
   become: true
   pre_tasks:
     - name: update repository
@@ -7,11 +11,6 @@
       apt:
         update_cache: yes
       changed_when: false
-
-- hosts: all
-  become: true
-  roles:
-    - base
 
 - hosts: backend
   become: true
