@@ -1,4 +1,7 @@
 ---
 # Used only for Debian/Ubuntu installation, as the -t option for apt.
 domain_app_port: 5000
-domain_app_name: app_test.conf
+domain_app_name: app_test.com
+
+domain_client_port: 8000
+domain_client_name: client_test.com

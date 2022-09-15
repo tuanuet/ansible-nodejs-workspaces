@@ -1,7 +1,7 @@
 ---
-- hosts: all
-  roles:
-    - base
+# - hosts: all
+#   roles:
+#     - base
 
 - hosts: all
   become: true
@@ -18,10 +18,16 @@
     - vars/nodejs.yml
     - vars/nginx.yml
     - vars/domain.yml
+    - vars/mysql.yml
   roles:
     - nodejs
     - nginx
+    - mysql
     - domains
   tasks:
     - name: Install pm2
       npm: name=pm2 global=yes production=yes
+    - name: Install yarn
+      npm: name=yarn global=yes production=yes
+    - name: Install nestjs
+      npm: name=@nestjs/cli global=yes production=yes
